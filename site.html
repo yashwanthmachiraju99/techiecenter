@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techiecenter Consulting | Tech Consulting & Software Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- AOS Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background-color: #ffffff;
+      color: #0a0a23;
+      scroll-behavior: smooth;
+    }
+
+    /* Loader */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a23;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+/* Header */
+header {
+  background: #0a0a23; /* Dark blue background */
+  color: #ffffff; /* White text */
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  animation: fadeSlideDown 1.2s ease;
+  position: relative;
+  z-index: 1000;
+}
+
+header img {
+  height: 55px;
+  cursor: pointer;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff; /* White heading text */
+}
+
+.header-text p {
+  font-size: 15px;
+  margin: 4px 0 0;
+  color: #c7d2fe; /* Soft light blue for tagline */
+}
+
+/* Hover effect */
+header:hover h1,
+header:hover p {
+  color: #4c8bf5; /* Bright blue on hover */
+  transition: color 0.3s ease;
+}
+
+/* Background Particles */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #0a0a23; /* Dark blue background */
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #0a0a23; /* Dark blue background */
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav a {
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #4c8bf5; /* Bright blue underline on hover */
+  transition: width 0.4s;
+}
+
+nav a:hover {
+  color: #4c8bf5; /* Bright blue on hover */
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 140px 20px 100px;
+  background: transparent;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  animation: fadeSlideUp 1.2s ease;
+  transition: all 0.4s ease;
+}
+
+.hero h1:hover {
+  color: #4c8bf5;
+  transform: translateY(-5px);
+}
+
+.hero p {
+  font-size: 22px;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.9;
+  color: #c7d2fe; /* Soft light blue */
+  animation: fadeIn 2s ease;
+  transition: all 0.4s ease;
+}
+
+.hero p:hover {
+  color: #4c8bf5;
+  transform: translateY(-3px);
+}
+
+.hero em {
+  display: block;
+  font-size: 18px;
+  color: #bbdefb;
+  margin-top: 25px;
+  opacity: 0.9;
+}
+
+
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    .services h2 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      font-weight: 700;
+      color: #0a0a23;
+    }
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .service-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 320px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+    .service-item:hover {
+      transform: translateY(-12px) scale(1.04);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+    .service-item h3 {
+      color: #0f0f2e;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .testimonials {
+      padding: 80px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .testimonials h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #0a0a23;
+    }
+    .testimonials-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .testimonial-card {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 480px;
+      text-align: left;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .testimonial-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .stars {
+      font-size: 18px;
+      color: #FFD700;
+    }
+
+    .animated-section {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .animation-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .animation-item {
+      width: 250px;
+      height: 250px;
+      background: #f5f5fa;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .animation-item:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    .contact {
+      background-color: #f0f0f5;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .footer {
+      background-color: #0a0a23;
+      color: #b3b3cc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #4c8bf5;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 18px;
+      z-index: 999;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+    #scrollToTopBtn:hover {
+      background-color: #3565c9;
+    }
+
+    @keyframes fadeSlideDown { 0% { opacity: 0; transform: translateY(-30px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeSlideUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+
+<body>
+  <!-- LOADER -->
+  <div id="loader">
+    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_usmfx6bp.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="https://techiecenter.in/">
+      <img src="images/logo1.png" alt="Techiecenter Logo">
+    </a>
+    <div class="header-text">
+      <h1>Techiecenter Consulting</h1>
+      <p>Your Partner in Technology Excellence</p>
+    </div>
+  </header>
+
+  <!-- PARTICLES (After header only) -->
+  <div id="particles-js"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Building the Future, One Line of Code at a Time</h1>
+    <p>We consult, build, and maintain top-notch software solutions for businesses that dare to lead.</p>
+    <em>Empowering small businesses with big technology.</em>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-item">
+        <h3>Tech Consulting</h3>
+        <p>Guiding you to make smart tech decisions.</p>
+      </div>
+      <div class="service-item">
+        <h3>Software Development</h3>
+        <p>Building reliable, scalable software tailored to you.</p>
+      </div>
+      <div class="service-item">
+        <h3>Software Maintenance</h3>
+        <p>Keeping your systems updated, secure, and efficient.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- (continues) -->
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials" id="testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonials-container">
+
+      <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1200">
+        <div class="testimonial-header">
+          <div>
+            <h3>M. Rama Prasad</h3>
+            <p>Principal, Govt. Polytechnic for Women, Warangal</p>
+            <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "We approached TechieCenter for a complete overhaul of our HR System, and the results have been phenomenal. The expertise, professionalism, and innovative approach they bring to the table are unmatched."
+        </p>
+      </div>
+
+      <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1200">
+        <div class="testimonial-header">
+          <div>
+            <h3>Tanvi Mittal</h3>
+            <p>Founder, ConnectAid, Bangalore</p>
+            <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "TechieCenter implemented a smart digital appointment system for our coaching platform. Scheduling became effortless, improving session efficiency and client satisfaction massively."
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ANIMATED SECTION -->
+  <section class="animated-section">
+    <h2>We Bring Ideas to Life</h2>
+    <div class="animation-container">
+      <div class="animation-item">
+        <lottie-player src="https://lottie.host/e1ddecb3-6f60-4c13-90c6-40a55fb8e244/VDCbvjC0kK.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+      <div class="animation-item">
+        <lottie-player src="https://lottie.host/c1f721e3-0843-4a53-8a9f-bb61dfc6fb0f/x5kp7G99z2.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+      <div class="animation-item">
+        <lottie-player src="https://lottie.host/017a01a2-fbd4-4987-8f1d-2660cea0c8af/sQLXp5WON3.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+  <h2>Get in Touch</h2>
+  <p><strong>Address:</strong> 35-6-224, Warangal, Telangana</p>
+  <p><strong>Email:</strong> 
+    <a href="mailto:hello@techiecenter.in" style="color: #4c8bf5; text-decoration: underline;">
+      hello@techiecenter.in
+    </a>
+  </p>
+  <p><strong>Phone:</strong> +91-9121604063</p>
+</section>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    &copy; 2025 Techiecenter Consulting <br> Made with ❤️ in India<br>
+    <small>Tech solutions crafted for startups and small businesses.</small>
+  </div>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Particles Background
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "color": "#ffffff" },
+        "move": { "speed": 1 }
+      }
+    });
+
+    // AOS Animation
+    AOS.init();
+
+    // Scroll To Top Button
+    window.onscroll = function() {
+      const btn = document.getElementById('scrollToTopBtn');
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Loader Hide After Page Load
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = 0;
+      loader.style.visibility = "hidden";
+      loader.style.transition = "opacity 0.5s ease";
+    });
+  </script>
+
+</body>
+</html>
